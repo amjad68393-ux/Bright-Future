@@ -25,34 +25,15 @@ nav a:hover,nav a:focus-visible{color:var(--gold);outline:none}
 .btn.ghost{background:transparent;color:var(--text);border:1.5px solid var(--line)}.btn.ghost:hover{border-color:var(--gold);background:transparent}
 .menu{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:8px 12px;font:600 13px Montserrat,sans-serif}
 /* hero */
-.hero {
-  padding: 100px 0 60px; /* Increased top/bottom padding for more height */
-  background: radial-gradient(900px 400px at 85% -10%,rgba(42,123,255,.28),transparent),radial-gradient(700px 360px at 0 20%,rgba(245,166,35,.12),transparent);
-}
-/* Change from: grid-template-columns: 1fr 1.2fr; */
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr; /* Gives slightly more horizontal space to the banner on desktop */
-  gap: 48px;
-  align-items: center;
-}
+.hero{padding:56px 0 24px;background:radial-gradient(900px 400px at 85% -10%,rgba(42,123,255,.28),transparent),radial-gradient(700px 360px at 0 20%,rgba(245,166,35,.12),transparent)}
+.hero-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center}
 .hero h1{font-size:clamp(38px,5.6vw,68px);line-height:1.04;margin:0 0 18px;font-weight:800;letter-spacing:-.02em}
 .hero h1 span{color:var(--green)}
 .hero p.lead{color:var(--mute);font-size:18px;max-width:480px;margin:0 0 30px}
 .cta{display:flex;gap:14px;flex-wrap:wrap}
 .banner img{width:100%;height:auto;aspect-ratio:940/348;object-fit:cover;object-position:center}
 .banner{border:0;border-radius:0;box-shadow:none;background:none}
-/* Update the aspect ratio or set a minimum height */
-.banner img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9; /* Changed from 940/348 to a taller ratio, e.g., 16/9 or 4/3 */
-  max-height: 480px;    /* Optional: cap the max height if needed */
-  object-fit: cover;
-  object-position: center;
-      position: relative;
-    bottom: 86px;
-}
+.banner img{-webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);mask-composite:intersect}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border:1px solid var(--line);border-radius:16px;background:var(--bg2)}
 .stats div{padding:26px 22px;border-right:1px solid var(--line)}.stats div:last-child{border:0}
 .stats b{display:block;font-size:34px;color:var(--gold);line-height:1.1}.stats span{color:var(--mute);font-size:14px}
@@ -65,6 +46,15 @@ section{padding:92px 0}
 .ico svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .svc h3{margin:0 0 8px;font-size:19px}.svc p{margin:0;color:var(--mute);font-size:15px}
 .alt{background:var(--bg2);border-block:1px solid var(--line)}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.member{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px 24px;text-align:center;transition:border-color .2s,transform .2s}
+.member:hover{border-color:var(--gold);transform:translateY(-4px)}
+.avatar{width:104px;height:104px;margin:0 auto 20px;border-radius:50%;padding:3px;background:conic-gradient(var(--gold),var(--blue),var(--green),var(--gold))}
+.avatar span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:var(--bg2);font-size:30px;font-weight:800;color:var(--text);letter-spacing:.02em}
+.member h3{margin:0 0 2px;font-size:18px}.member .role{color:var(--gold);font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin:0 0 12px}
+.member p.bio{margin:0;color:var(--mute);font-size:14px}
+@media(max-width:900px){.team{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.team{grid-template-columns:1fr}}
 .learn{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .learn ul{list-style:none;padding:0;margin:24px 0 30px;display:grid;gap:12px}
 .learn li{display:flex;gap:12px;color:var(--mute)}.learn li:before{content:"";flex:none;width:20px;height:20px;margin-top:3px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23031' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
@@ -101,6 +91,7 @@ footer.site{border-top:1px solid var(--line);padding:48px 0 32px;background:var(
  .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
  .fgrid{grid-template-columns:1fr}section{padding:68px 0}.banner img{aspect-ratio:2/1}}
 @media(max-width:520px){.steps{grid-template-columns:1fr}.banner img{aspect-ratio:16/10}}
+@media(min-width:901px){.hero .wrap{width:min(1360px,94%)}.hero-grid{grid-template-columns:.85fr 1.5fr;gap:12px}.hero .banner img{aspect-ratio:2.1/1}.hero p.lead{font-size:19px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style></head><body>
 <header><div class="wrap nav">
@@ -132,7 +123,7 @@ footer.site{border-top:1px solid var(--line);padding:48px 0 32px;background:var(
 </div></div></section>
 
 <section id="learning" class="alt"><div class="wrap learn">
-<div><div class="head" style="margin-bottom:0"><h2>Learn digital marketing from people who run campaigns daily</h2><p>Our training programs are practical. You work on real ad accounts, not slides.</p></div>
+<div><div class="head" style="margin-bottom:0"><h2>Learn digital marketing from people who lead these field.</h2><p>Our training programs are practical. You work on real ad accounts, not slides.</p></div>
 <ul><li>Live classes with recorded lessons you can revisit</li><li>Hands-on projects with real budgets and real data</li><li>Certificate and career guidance after completion</li></ul>
 <a class="btn" href="#contact">Ask about courses</a></div>
 <div class="courses">
@@ -163,6 +154,15 @@ footer.site{border-top:1px solid var(--line);padding:48px 0 32px;background:var(
 <div class="q"><p>The team trained my staff and then ran our ads. We now manage campaigns in-house with confidence.</p><footer><b>Tanvir Ahmed</b>Director, retail company</footer></div>
 <div class="q"><p>I joined the Facebook Ads course and landed my first freelance client before it ended.</p><footer><b>Rafiq Hasan</b>Course graduate</footer></div>
 </div></div></section>-->
+
+<section id="team"><div class="wrap">
+<div class="head"><h2>Meet the team behind your growth</h2><p>Marketers, designers and trainers who treat your budget like their own.</p></div>
+<div class="team">
+<div class="member"><div class="avatar"><span>AR</span></div><h3>Arif Rahman</h3><p class="role">Founder and CEO</p><p class="bio">10+ years in digital marketing. Sets the strategy for every client account.</p></div>
+<div class="member"><div class="avatar"><span>SK</span></div><h3>Sadia Khan</h3><p class="role">Head of Performance Ads</p><p class="bio">Manages Meta and Google campaigns and keeps cost per lead under control.</p></div>
+<div class="member"><div class="avatar"><span>MH</span></div><h3>Mahmud Hasan</h3><p class="role">Creative Director</p><p class="bio">Leads design and video, from ad creatives to full brand visuals.</p></div>
+<div class="member"><div class="avatar"><span>TI</span></div><h3>Tasnim Islam</h3><p class="role">Lead Trainer</p><p class="bio">Runs our courses and has trained over a thousand learners.</p></div>
+</div></div></section>
 
 <section id="contact"><div class="wrap contact">
 <div><div class="head" style="margin-bottom:0"><h2>Let your business fly</h2><p>Tell us about your goals. We reply within one working day with next steps.</p></div>
